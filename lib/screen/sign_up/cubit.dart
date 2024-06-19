@@ -34,7 +34,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
             "FirstName": controllers.firstNameController.text,
             "LastName": controllers.lastNameController.text,
             "Username": controllers.userNameController.text,
-            "BlindId": "638470f3-79c5-43b3-90ed-d18c9a",
+            "BlindId": controllers.idController.text,
             "Email": controllers.emailController.text,
             "Password": controllers.passwordController.text,
             "ImageUrl": imageFileCropper != null
