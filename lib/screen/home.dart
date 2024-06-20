@@ -3,7 +3,7 @@ import 'package:roaia_app/core/helpers/cache_helper.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/about.dart';
 import 'package:roaia_app/screen/login/login.dart';
-import 'package:roaia_app/screen/patient_info.dart';
+import 'package:roaia_app/screen/blind_info/patient_info.dart';
 import 'package:roaia_app/screen/setting.dart';
 
 class Home_Screen extends StatefulWidget {

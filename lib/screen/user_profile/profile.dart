@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/change_password/change_password.dart';
-import 'package:roaia_app/screen/edit_profile.dart';
+import 'package:roaia_app/screen/edit_profile/edit_profile.dart';
+import 'package:roaia_app/screen/refresh_token/refresh_token/view.dart';
 import 'package:roaia_app/screen/user_profile/user_info_cubit.dart';
 
 class UserProfileScreen extends StatelessWidget {
@@ -11,41 +12,43 @@ class UserProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => UserInfoCubit(),
-      child: ProfileBody(),
-    );
+    return _ProfileBody();
   }
 }
 
-class ProfileBody extends StatelessWidget {
-  ProfileBody({super.key});
+class _ProfileBody extends StatelessWidget {
+  _ProfileBody();
 
-  bool read = true;
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<UserInfoCubit>(context);
-    cubit.userInfoData();
+
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: BlocConsumer<UserInfoCubit, UserInfoStates>(
-                listener: (context, state) {
-                  if (state is UserInfoFailedState) {
-                    print('error is ...${state.msg}');
-                  }
-                },
-                builder: (context, state) {
-                  if (state is UserInfoLoadingState) {
-                    return Center(
-                      child: CircularProgressIndicator(
-                        color: const Color(0xff2C67FF),
-                      ),
-                    );
-                  }
-                  return Column(
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: BlocConsumer<UserInfoCubit, UserInfoStates>(
+              listener: (context, state) {
+                if (state is UnAuthorizedState) {
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                    return RefreshTokenView();
+                  }));
+                }
+              },
+              builder: (context, state) {
+                if (state is UserInfoLoadingState) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      color: const Color(0xff2C67FF),
+                    ),
+                  );
+                } else if (state is UserInfoFailedState) {
+                  return Center(child: Text(state.msg));
+                } else if (state is NetworkErrorState) {
+                  return Center(child: Text('Network Error'));
+                }
+                return SingleChildScrollView(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(
@@ -89,10 +92,17 @@ class ProfileBody extends StatelessWidget {
                           InkWell(
                               onTap: () {
                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Edit_Profile(),
-                                    ));
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Edit_Profile(
+                                      firstName: "${cubit.userInfo!.firstName}",
+                                      lastName: "${cubit.userInfo!.lastName}",
+                                      userName: "${cubit.userInfo!.userName}",
+                                      email: "${cubit.userInfo!.email}",
+                                      imageUrl: "${cubit.userInfo!.imageUrl}",
+                                    ),
+                                  ),
+                                );
                               },
                               child: Image.asset('assets/images/edit.png'))
                         ],
@@ -100,9 +110,10 @@ class ProfileBody extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 100,
-                        backgroundImage: AssetImage('assets/images/image5.png'),
+                        backgroundImage:
+                            NetworkImage('${cubit.userInfo!.imageUrl}'),
                       ),
                       const SizedBox(
                         height: 20,
@@ -130,34 +141,7 @@ class ProfileBody extends StatelessWidget {
                                   color: Colors.black),
                               children: [
                                 TextSpan(
-                                  text: '   \n    shahd_123',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff57534E)),
-                                )
-                              ]),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            color: Color(0xffF1F3F9),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Text.rich(
-                          TextSpan(
-                              text: tr("phone_number", context),
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black),
-                              children: [
-                                TextSpan(
-                                  text: '   \n    01102507463',
+                                  text: '   \n    ${cubit.userInfo!.userName}',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
@@ -184,7 +168,7 @@ class ProfileBody extends StatelessWidget {
                                   color: Colors.black),
                               children: [
                                 TextSpan(
-                                  text: '   \n    shahd.tarek123@gmail.com',
+                                  text: '   \n    ${cubit.userInfo!.email}',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
@@ -254,10 +238,10 @@ class ProfileBody extends StatelessWidget {
                         ),
                       ),
                     ],
-                  );
-                },
-              )),
-        ),
+                  ),
+                );
+              },
+            )),
       ),
     );
   }

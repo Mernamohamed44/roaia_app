@@ -15,3 +15,4 @@ class UserInfoFailedState extends UserInfoStates {
 }
 
 class NetworkErrorState extends UserInfoStates {}
+class UnAuthorizedState extends UserInfoStates {}
