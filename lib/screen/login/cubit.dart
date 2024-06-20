@@ -20,7 +20,10 @@ class LoginCubit extends Cubit<LoginStates> {
   final logger = Logger();
   bool isObscure = true;
   bool isRemember = true;
-
+  changeVisibility() {
+    isObscure = !isObscure;
+    emit(ChanceVisibilityState());
+  }
   Future<void> login() async {
     if (formKey.currentState!.validate()) {
       emit(LoginLoadingState());

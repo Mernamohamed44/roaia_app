@@ -107,22 +107,32 @@ class _LoginBody extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  controller: cubit.passwordController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
+                BlocBuilder<LoginCubit, LoginStates>(
+                  builder: (context, state) {
+                    return TextFormField(
+                      obscureText: cubit.isObscure,
+                      controller: cubit.passwordController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: tr("epassword", context),
+                          suffixIcon: IconButton(
+                            icon: cubit.isObscure
+                                ? const Icon(Icons.visibility_outlined)
+                                : Icon(Icons.visibility_off),
+                            onPressed: cubit.changeVisibility,
+                          ),
+                          labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                              color: Color(0xff96A0B6)),
+                          border: const OutlineInputBorder()),
+                    );
                   },
-                  decoration: InputDecoration(
-                      labelText: tr("epassword", context),
-                      suffixIcon: const Icon(Icons.visibility_outlined),
-                      labelStyle: const TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                          color: Color(0xff96A0B6)),
-                      border: const OutlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 10,

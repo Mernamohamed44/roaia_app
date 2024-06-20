@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:roaia_app/core/helpers/cache_helper.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/about.dart';
+import 'package:roaia_app/screen/login/login.dart';
 import 'package:roaia_app/screen/patient_info.dart';
 import 'package:roaia_app/screen/setting.dart';
 
@@ -134,6 +136,31 @@ class _Home_ScreenState extends State<Home_Screen> {
                         width: 5,
                       ),
                       Text(tr("about_roaia", context))
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  CacheHelper.clear();
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Login_Screen(),
+                  ));
+                },
+                child: Container(
+                  padding: const EdgeInsetsDirectional.all(5),
+                  margin: const EdgeInsetsDirectional.all(5),
+                  height: 45,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all()),
+                  child: Row(
+                    children: [
+                      Icon(Icons.logout_outlined),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text('Log out')
                     ],
                   ),
                 ),

@@ -30,23 +30,6 @@ class _Sign_Up_Bdy extends StatefulWidget {
 class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
   bool agree = false;
 
-  String barcode = '';
-
-  Future scanBarcode() async {
-    try {
-      barcode = await FlutterBarcodeScanner.scanBarcode(
-          '#ff6666', 'cancel', true, ScanMode.BARCODE);
-
-      debugPrint(barcode);
-    } on PlatformException {
-      barcode = 'Failed to get ';
-    }
-    if (!mounted) return;
-    setState(() {
-      barcode == barcode;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<RegisterCubit>(context);
@@ -173,7 +156,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       return null;
                     },
                     decoration: InputDecoration(
-                        labelText: tr("eusername", context),
+                        labelText: ' Enter User name',
+                        //labelText: tr("eusername", context),
                         labelStyle: const TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18,
@@ -210,7 +194,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       return null;
                     },
                     decoration: const InputDecoration(
-                        labelText: 'ahmed.asad3988@gmail.com',
+                        labelText: 'email',
                         prefixIcon: Icon(Icons.email),
                         labelStyle: TextStyle(
                             fontWeight: FontWeight.w400,
@@ -233,26 +217,36 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  height: 48,
-                  child: TextFormField(
-                    controller: cubit.controllers.passwordController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        labelText: tr("cpass", context),
-                        suffixIcon: const Icon(Icons.visibility_outlined),
-                        prefixIcon: const Icon(Icons.lock),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xff96A0B6)),
-                        border: const OutlineInputBorder()),
-                  ),
+                BlocBuilder<RegisterCubit, RegisterStates>(
+                  builder: (context, state) {
+                    return SizedBox(
+                      height: 48,
+                      child: TextFormField(
+                        controller: cubit.controllers.passwordController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        obscureText: cubit.isObscure,
+                        decoration: InputDecoration(
+                            labelText: tr("cpass", context),
+                            suffixIcon: IconButton(
+                              icon: cubit.isObscure
+                                  ? const Icon(Icons.visibility_outlined)
+                                  : Icon(Icons.visibility_off),
+                              onPressed: cubit.changeVisibility,
+                            ),
+                            prefixIcon: const Icon(Icons.lock),
+                            labelStyle: const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18,
+                                color: Color(0xff96A0B6)),
+                            border: const OutlineInputBorder()),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(
                   height: 20,
@@ -268,40 +262,45 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .70,
-                      height: 48,
-                      child: TextFormField(
-                        controller: cubit.controllers.idController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter an id';
-                          }
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                            labelText: '   b4310c27-007f-451c-b9e0-bd4acb',
-                            labelStyle: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                color: Color(0xff96A0B6)),
-                            border: OutlineInputBorder()),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .205555,
-                      child: InkWell(
-                          onTap: () {
-                            scanBarcode();
-                          },
-                          child: Image.asset(
-                            'assets/images/id.png',
-                            scale: .93,
-                          )),
-                    ),
-                  ],
+                BlocBuilder<RegisterCubit, RegisterStates>(
+                  builder: (context, state) {
+                    return Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .70,
+                          height: 48,
+                          child: TextFormField(
+                            controller:
+                                TextEditingController(text: cubit.barcode),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter an id';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                labelText: cubit.barcode,
+                                labelStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 18,
+                                    color: Color(0xff96A0B6)),
+                                border: OutlineInputBorder()),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .205555,
+                          child: InkWell(
+                              onTap: () {
+                                cubit.scanBarcode();
+                              },
+                              child: Image.asset(
+                                'assets/images/id.png',
+                                scale: .93,
+                              )),
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 const SizedBox(
                   height: 30,

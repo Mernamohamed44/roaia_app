@@ -2,29 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
+import 'package:roaia_app/screen/login/login.dart';
 import 'package:roaia_app/screen/otp/states.dart';
 import 'package:roaia_app/screen/reset_password/Reset_Password.dart';
 
 import 'cubit.dart';
 
 class OTP_Screen extends StatelessWidget {
-  const OTP_Screen({super.key, required this.email});
+  const OTP_Screen({
+    super.key,
+    required this.email,
+    this.navigateFromForget = false,
+  });
 
   final String email;
+  final bool navigateFromForget;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => OtpCubit(),
-      child: _OTP_Body(email: email),
+      child: _OTP_Body(
+        email: email,
+        navigateFromForget: navigateFromForget,
+      ),
     );
   }
 }
 
 class _OTP_Body extends StatelessWidget {
-  _OTP_Body({required this.email});
+  _OTP_Body({required this.email, required this.navigateFromForget});
 
   final String email;
+  final bool navigateFromForget;
 
   @override
   Widget build(BuildContext context) {
@@ -235,9 +245,11 @@ class _OTP_Body extends StatelessWidget {
                   } else if (state is OtpSuccessState) {
                     Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                        builder: (context) => Reset_Password_Screen(
-                          email: email,
-                        ),
+                        builder: (context) => navigateFromForget
+                            ? Reset_Password_Screen(
+                                email: email,
+                              )
+                            : Login_Screen(),
                       ),
                       (route) => false,
                     );
@@ -255,7 +267,9 @@ class _OTP_Body extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 90,
                     height: 44,
                     decoration: BoxDecoration(
-                      color: const Color(0xff2C67FF),
+                      color: cubit.code6.text.isEmpty
+                          ? Colors.grey
+                          : const Color(0xff2C67FF),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: TextButton(

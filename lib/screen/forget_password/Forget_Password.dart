@@ -99,6 +99,7 @@ class _Forget_Password_Body extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => OTP_Screen(
                         email: cubit.emailController.text,
+                        navigateFromForget: true,
                       ),
                     ),
                   );

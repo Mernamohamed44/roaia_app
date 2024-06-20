@@ -9,7 +9,7 @@ class LoginSuccessState extends LoginStates {}
 class NetworkErrorState extends LoginStates {}
 
 class NotVerifyState extends LoginStates {}
-
+class ChanceVisibilityState extends LoginStates {}
 class LoginFailedState extends LoginStates {
   final String msg;
 

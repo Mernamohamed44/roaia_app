@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/change_password/change_password.dart';
 import 'package:roaia_app/screen/edit_profile.dart';
@@ -22,16 +23,14 @@ class ProfileScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(Icons.arrow_back_ios_new)),
+                    SizedBox(
+                      width: 110.w,
+                    ),
                     Container(
-                      width: 120,
-                      height: 55,
+                      width: 120.w,
+                      height: 55.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(22),
@@ -53,6 +52,9 @@ class ProfileScreen extends StatelessWidget {
                               color: Color(0xff5095FF)),
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      width: 50.w,
                     ),
                     InkWell(
                         onTap: () {

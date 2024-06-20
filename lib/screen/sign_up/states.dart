@@ -9,6 +9,7 @@ class RegisterSuccessState extends RegisterStates {}
 class RegisterNetworkErrorState extends RegisterStates {}
 
 class ChanceVisibilityState extends RegisterStates {}
+class ScanBarcode extends RegisterStates {}
 
 class RegisterFailedState extends RegisterStates {
   final String msg;

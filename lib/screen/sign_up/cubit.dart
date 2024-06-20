@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
@@ -34,7 +36,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
             "FirstName": controllers.firstNameController.text,
             "LastName": controllers.lastNameController.text,
             "Username": controllers.userNameController.text,
-            "BlindId": controllers.idController.text,
+            "BlindId": barcode,
             "Email": controllers.emailController.text,
             "Password": controllers.passwordController.text,
             "ImageUrl": imageFileCropper != null
@@ -97,6 +99,20 @@ class RegisterCubit extends Cubit<RegisterStates> {
         emit(UploadImageStates());
       }
     });
+  }
+  String barcode = '';
+
+  Future scanBarcode() async {
+    try {
+      barcode = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'cancel', true, ScanMode.BARCODE);
+
+      debugPrint(barcode);
+    } on PlatformException {
+      barcode = 'Failed to get ';
+    }
+    barcode == barcode;
+    emit(ScanBarcode());
   }
 
   @override
