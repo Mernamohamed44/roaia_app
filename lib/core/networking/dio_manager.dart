@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:roaia_app/core/helpers/cache_helper.dart';
 
 import 'api_constants.dart';
 
@@ -31,6 +32,12 @@ class DioManager {
         maxWidth: 120,
       ));
     }
+    String token = CacheHelper.get(key: "access_token") ?? "";
+
+    token.isNotEmpty
+        ? dio.options.headers["Authorization"] = "Bearer $token"
+        : null;
+    print(token);
     return dio;
   }
 

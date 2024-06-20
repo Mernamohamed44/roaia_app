@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
-import 'package:roaia_app/screen/profile.dart';
+import 'package:roaia_app/screen/user_profile/profile.dart';
 
 class Edit_Profile extends StatelessWidget {
   const Edit_Profile({super.key});
@@ -264,7 +264,7 @@ class Edit_Profile extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProfileScreen(),
+                      builder: (context) => UserProfileScreen(),
                     ));
                   },
                   child: Text(

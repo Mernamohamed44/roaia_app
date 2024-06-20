@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/home.dart';
 import 'package:roaia_app/screen/notification.dart';
-import 'package:roaia_app/screen/profile.dart';
 import 'package:roaia_app/screen/user.dart';
+import 'package:roaia_app/screen/user_profile/profile.dart';
 
 class Botton_Bar extends StatefulWidget {
   const Botton_Bar({super.key});
@@ -19,7 +19,7 @@ class _Botton_BarState extends State<Botton_Bar> {
     Home_Screen(),
     User_Screen(),
     Notification_Screen(),
-    ProfileScreen(),
+    UserProfileScreen(),
   ];
 
   @override
