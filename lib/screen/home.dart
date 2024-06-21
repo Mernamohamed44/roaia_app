@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roaia_app/core/helpers/cache_helper.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
+import 'package:roaia_app/models/user_info_model.dart';
 import 'package:roaia_app/screen/about.dart';
 import 'package:roaia_app/screen/login/login.dart';
 import 'package:roaia_app/screen/blind_info/patient_info.dart';
@@ -40,25 +41,29 @@ class _Home_ScreenState extends State<Home_Screen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * .05,
               ),
-              const Row(
-                children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage('assets/images/image5.png'),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    'Shahd Ahmed ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              ),
+               Builder(
+                 builder: (context) {
+                   return Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: NetworkImage('${CacheHelper.get(key: 'imageUrl')}'),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        '${CacheHelper.get(key: 'name')}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),
+                      )
+                    ],
+                                 );
+                 }
+               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .05,
               ),

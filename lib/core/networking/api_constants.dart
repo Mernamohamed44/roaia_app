@@ -11,4 +11,7 @@ class ApiConstants {
   static const String blindInfo = "$apiBaseUrl/Account/blindinfo";
   static const String refreshToken = "$apiBaseUrl/Auth/refreshToken";
   static const String editProfile = "$apiBaseUrl/Auth/modifyUser";
+  static const String editBlind = "$apiBaseUrl/Account/ModifyBlindInfo";
+  static const String AddContact = "$apiBaseUrl/Account/AddContact";
+  static const String getContacts = "$apiBaseUrl/Account/getAllContacts";
 }

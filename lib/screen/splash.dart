@@ -23,7 +23,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                token.isNotEmpty ? Botton_Bar() : Onborading_Screen(),
+                token.isNotEmpty ? NavigationBottom() : Onborading_Screen(),
           ),
           (route) => false);
     });

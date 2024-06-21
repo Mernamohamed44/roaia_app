@@ -46,7 +46,12 @@ class LoginCubit extends Cubit<LoginStates> {
             key: 'email',
             value: "${response.data['email']}",
           );
+          CacheHelper.put(
+            key: 'refreshToken',
+            value: "${response.data['refreshToken']}",
+          );
           logger.i(response.data["token"]);
+          logger.i(response.data["refreshToken"]);
         } else {
           emit(LoginFailedState(msg: response.data));
         }

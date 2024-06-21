@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:roaia_app/core/helpers/cache_helper.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/change_password/change_password.dart';
 import 'package:roaia_app/screen/edit_profile/edit_profile.dart';
@@ -22,18 +23,15 @@ class _ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<UserInfoCubit>(context);
-
-    return Scaffold(
+    print(' token ref ${  CacheHelper.get(key: 'refreshToken')
+    }');
+        return Scaffold(
       body: SafeArea(
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: BlocConsumer<UserInfoCubit, UserInfoStates>(
               listener: (context, state) {
-                if (state is UnAuthorizedState) {
-                  Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-                    return RefreshTokenView();
-                  }));
-                }
+
               },
               builder: (context, state) {
                 if (state is UserInfoLoadingState) {

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/blind_info/blind_info_cubit.dart';
 import 'package:roaia_app/screen/botton_bar.dart';
-import 'package:roaia_app/screen/patient_info2.dart';
+import 'package:roaia_app/screen/edit_blind_info/edit_blind_info.dart';
 
 class Patient_Info extends StatelessWidget {
   const Patient_Info({super.key});
@@ -83,8 +84,8 @@ class _Patient_Info_Body extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Text(
                       'Age : ${cubit.BlindInfo!.age}',
@@ -93,8 +94,8 @@ class _Patient_Info_Body extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Text(
                       'Gender : ${cubit.BlindInfo!.gender}',
@@ -103,18 +104,18 @@ class _Patient_Info_Body extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Text(
-                      'Diseases : ${cubit.BlindInfo!.diseases}',
+                      'Diseases : ${cubit.BlindInfo!.diseases ?? ''}',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Row(
                       children: [
@@ -127,11 +128,13 @@ class _Patient_Info_Body extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Botton_Bar(),
-                                ));
+                                  builder: (context) =>
+                                      const NavigationBottom(),
+                                ),
+                                (route) => false);
                           },
                           child: Text(
                             tr("go_home", context),
@@ -144,7 +147,7 @@ class _Patient_Info_Body extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .10,
+                      height: 20.h,
                     ),
                     Container(
                       width: 360,
@@ -156,7 +159,12 @@ class _Patient_Info_Body extends StatelessWidget {
                       child: TextButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const Patient_Info2(),
+                            builder: (context) => EditBlindInfo(
+                              BlindName: cubit.BlindInfo!.fullName!,
+                              BlindAge: "${cubit.BlindInfo!.age}",
+                              BlindGender: cubit.BlindInfo!.gender,
+                              Diseases: cubit.BlindInfo!.diseases!,
+                            ),
                           ));
                         },
                         child: Text(

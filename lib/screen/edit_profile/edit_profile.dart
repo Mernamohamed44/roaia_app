@@ -326,7 +326,7 @@ class Edit_Profile_Body extends StatelessWidget {
                           );
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                              builder: (context) => Botton_Bar(),
+                              builder: (context) => NavigationBottom(),
                             ),
                             (route) => false,
                           );

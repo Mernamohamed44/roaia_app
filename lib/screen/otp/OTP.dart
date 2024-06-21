@@ -310,7 +310,7 @@ class _OTP_Body extends StatelessWidget {
                         color: Color(0xff040508)),
                   ),
                   Text(
-                    tr("time", context),
+                    '2:00',
                     style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 18,

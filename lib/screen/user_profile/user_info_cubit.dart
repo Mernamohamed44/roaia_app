@@ -29,6 +29,14 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
             key: 'blindId',
             value: "${userInfo!.blindId}",
           );
+        CacheHelper.put(
+          key: 'imageUrl',
+          value: "${userInfo!.imageUrl}",
+        );CacheHelper.put(
+          key: 'name',
+          value: "${userInfo!.firstName} ${userInfo!.lastName}",
+        );
+        print('imageee${userInfo!.imageUrl}');
         emit(UserInfoSuccessState());
         // CacheHelper.put(
         //   key: 'access_token',
@@ -62,6 +70,7 @@ class UserInfoCubit extends Cubit<UserInfoStates> {
       case DioExceptionType.badResponse:
              if(e.response!.statusCode==401)
              {
+               print('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
                emit(UnAuthorizedState());
              }
              else {

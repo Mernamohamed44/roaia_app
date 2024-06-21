@@ -183,7 +183,7 @@ class _LoginBody extends StatelessWidget {
                     } else if (state is LoginSuccessState) {
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                          builder: (context) => const Botton_Bar(),
+                          builder: (context) => const NavigationBottom(),
                         ),
                         (route) => false,
                       );
