@@ -46,6 +46,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
     controllers =
         widget.Diseases.map((string) => TextEditingController(text: string))
             .toList();
+     man= widget.BlindGender;
 
     super.initState();
   }
@@ -73,7 +74,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
     final cubit = BlocProvider.of<EditBlindInfoCubit>(context);
     cubit.blindNameController.text = widget.BlindName;
     cubit.blindAgeController.text = widget.BlindAge;
-    man = widget.BlindGender;
+    // man = widget.BlindGender;
 
     // cubit.blindDiseasesController.text = widget.Diseases;
     // print("dess: ${widget.Diseases}");
@@ -157,50 +158,56 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * .05,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * .40,
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                          ),
-                          child: RadioListTile(
-                              title: Text(
-                                tr("female", context),
-                                style: const TextStyle(
-                                    fontSize: 13, fontWeight: FontWeight.bold),
+                    Builder(
+                      builder: (context) {
+                        return Row(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * .40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xff1363DF)),
                               ),
-                              value: "Female",
-                              groupValue: man,
-                              onChanged: (val) {
-                                setState(() {
-                                  man = val;
-                                });
-                              }),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * .10,
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * .40,
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                          ),
-                          child: RadioListTile(
-                              title: Text(
-                                tr("male", context),
-                                style: const TextStyle(
-                                    fontSize: 13, fontWeight: FontWeight.bold),
+                              child: RadioListTile(
+                                  title: Text(
+                                    tr("female", context),
+                                    style: const TextStyle(
+                                        fontSize: 13, fontWeight: FontWeight.bold),
+                                  ),
+                                  value: "Female",
+                                  groupValue: man,
+                                  onChanged: (val) {
+                                    setState(() {
+                                      man = val!;
+                                    });
+                                  }),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .10,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * .40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xff1363DF)),
                               ),
-                              value: "Male",
-                              groupValue: man,
-                              onChanged: (val) {
-                                setState(() {
-                                  man = val;
-                                });
-                              }),
-                        ),
-                      ],
+                              child: RadioListTile(
+                                  title: Text(
+                                    tr("male", context),
+                                    style: const TextStyle(
+                                        fontSize: 13, fontWeight: FontWeight.bold),
+                                  ),
+                                  value: "Male",
+                                  groupValue: man,
+                                  onChanged: (val) {
+                                    setState(() {
+                                      man = val!;
+                                    });
+                                  }),
+                            ),
+                          ],
+                        );
+                      }
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * .04,
@@ -261,12 +268,13 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                                                   });
                                                 },
                                           child: index == 0
-                                              ? Icon(Icons.add_circle_outline,
+                                              ? Icon(
+                                                  Icons.add_circle_outline,
                                                   color: Color(0xff1363DF),
-                                          size: 35,)
+                                                  size: 35,
+                                                )
                                               : Icon(Icons.cancel_outlined,
-                                                  color: Colors.red,
-                                              size: 35),
+                                                  color: Colors.red, size: 35),
                                         ),
                                       ),
                                     ),

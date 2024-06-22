@@ -55,9 +55,6 @@ class _Patient_Info_Body extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * .10,
-                    ),
                     Center(
                       child: CircleAvatar(
                         radius: 50,
