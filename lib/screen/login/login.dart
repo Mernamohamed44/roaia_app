@@ -74,19 +74,12 @@ class _LoginBody extends StatelessWidget {
                   height: 10,
                 ),
                 TextFormField(
+
+                  // autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: cubit.emailController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    //check if valid mail
-                    if (!value.contains('@') || !value.contains('.')) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
+                  // validator: cubit.validateEmail,
                   decoration: InputDecoration(
-                      labelText: tr("email", context),
+                      labelText: 'Username, email or phone number',
                       labelStyle: const TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
@@ -110,14 +103,10 @@ class _LoginBody extends StatelessWidget {
                 BlocBuilder<LoginCubit, LoginStates>(
                   builder: (context, state) {
                     return TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       obscureText: cubit.isObscure,
                       controller: cubit.passwordController,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
+                      validator: cubit.validatePassword,
                       decoration: InputDecoration(
                           labelText: tr("epassword", context),
                           suffixIcon: IconButton(

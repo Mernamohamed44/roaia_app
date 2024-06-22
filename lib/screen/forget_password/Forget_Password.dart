@@ -50,7 +50,7 @@ class _Forget_Password_Body extends StatelessWidget {
               height: 50,
             ),
             Text(
-              tr("mail_restpassword", context),
+              'Email',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -65,7 +65,7 @@ class _Forget_Password_Body extends StatelessWidget {
               child: TextFormField(
                 controller: cubit.emailController,
                 decoration: const InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Username, email or phone number',
                     prefixIcon: Icon(
                       Icons.email,
                       size: 18,

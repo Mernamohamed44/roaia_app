@@ -113,27 +113,27 @@ class Reset_Password_Body extends StatelessWidget {
                 height: 10,
               ),
               BlocBuilder<ResetPasswordCubit, ResetPasswordStates>(
-  builder: (context, state) {
-    return TextFormField(
-                obscureText: cubit.isObscureConfirm,
-                controller: cubit.rePasswordController,
-                decoration: InputDecoration(
-                    labelText: tr("re_epassword", context),
-                    suffixIcon: IconButton(
-                      icon: cubit.isObscureConfirm
-                          ? const Icon(Icons.visibility_outlined)
-                          : Icon(Icons.visibility_off),
-                      onPressed: cubit.changeVisibilityConfirm,
-                    ),
-                    prefixIcon: const Icon(Icons.lock),
-                    labelStyle: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18,
-                        color: Color(0xff96A0B6)),
-                    border: const OutlineInputBorder()),
-              );
-  },
-),
+                builder: (context, state) {
+                  return TextFormField(
+                    obscureText: cubit.isObscureConfirm,
+                    controller: cubit.rePasswordController,
+                    decoration: InputDecoration(
+                        labelText: tr("re_epassword", context),
+                        suffixIcon: IconButton(
+                          icon: cubit.isObscureConfirm
+                              ? const Icon(Icons.visibility_outlined)
+                              : Icon(Icons.visibility_off),
+                          onPressed: cubit.changeVisibilityConfirm,
+                        ),
+                        prefixIcon: const Icon(Icons.lock),
+                        labelStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18,
+                            color: Color(0xff96A0B6)),
+                        border: const OutlineInputBorder()),
+                  );
+                },
+              ),
               const SizedBox(
                 height: 60,
               ),

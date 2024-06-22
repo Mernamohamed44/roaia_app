@@ -58,7 +58,7 @@ class _NavigationBottomState extends State<NavigationBottom> {
                       ),
                       BottomNavigationBarItem(
                           icon: const Icon(Icons.person_outline),
-                          label: tr("users", context)),
+                          label: 'Contacts'),
                       BottomNavigationBarItem(
                           icon: const Icon(Icons.notification_important_outlined),
                           label: tr("notification", context)),

@@ -4,6 +4,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/login/login.dart';
+import 'package:roaia_app/screen/otp/OTP.dart';
 import 'package:roaia_app/screen/sign_up/states.dart';
 
 import 'cubit.dart';
@@ -82,7 +83,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                    autovalidateMode: AutovalidateMode
+                        .onUserInteraction, // Enables continuous validation
 
                     controller: cubit.controllers.firstNameController,
                     validator: (value) {
@@ -117,7 +119,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                    autovalidateMode: AutovalidateMode
+                        .onUserInteraction, // Enables continuous validation
 
                     controller: cubit.controllers.lastNameController,
                     validator: (value) {
@@ -152,7 +155,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                    autovalidateMode: AutovalidateMode
+                        .onUserInteraction, // Enables continuous validation
 
                     controller: cubit.controllers.userNameController,
                     validator: (value) {
@@ -160,8 +164,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       RegExp regex = RegExp(usernameRegex);
                       if (!regex.hasMatch(value!)) {
                         return 'Username can only contain letters or digits';
-                      }
-                    else  if (value.isEmpty) {
+                      } else if (value.isEmpty) {
                         return 'User Name Field Required';
                       }
                       return null;
@@ -194,7 +197,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                   height: 48,
                   child: TextFormField(
                     controller: cubit.controllers.emailController,
-                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                    autovalidateMode: AutovalidateMode
+                        .onUserInteraction, // Enables continuous validation
                     validator: cubit.validateEmail,
                     decoration: const InputDecoration(
                         labelText: 'email',
@@ -227,7 +231,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       child: TextFormField(
                         controller: cubit.controllers.passwordController,
                         validator: cubit.validatePassword,
-                        autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                        autovalidateMode: AutovalidateMode
+                            .onUserInteraction, // Enables continuous validation
                         obscureText: cubit.isObscure,
                         decoration: InputDecoration(
                             labelText: tr("cpass", context),
@@ -269,7 +274,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                           width: MediaQuery.of(context).size.width * .70,
                           height: 48,
                           child: TextFormField(
-                            autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                            autovalidateMode: AutovalidateMode
+                                .onUserInteraction, // Enables continuous validation
                             controller:
                                 TextEditingController(text: cubit.barcode),
                             validator: cubit.validateGuid,
@@ -467,7 +473,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       );
                     } else if (state is RegisterSuccessState) {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => Login_Screen(),
+                        builder: (context) => OTP_Screen(
+                            email: cubit.controllers.emailController.text),
                       ));
                     }
                   },
@@ -495,13 +502,13 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                                     "You must agree to the terms and conditions"),
                               ),
                             );
-                          } else if (cubit.imageFileCropper == null) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text("choose your photo"),
-                              ),
-                            );
-                          } else {
+                            // } else if (cubit.imageFileCropper == null) {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     SnackBar(
+                            //       content: Text("choose your photo"),
+                            //     ),
+                            //   );
+                            // } else {
                             cubit.register();
                           }
                         },
