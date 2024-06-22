@@ -98,6 +98,7 @@ class _ProfileBody extends StatelessWidget {
                                       userName: "${cubit.userInfo!.userName}",
                                       email: "${cubit.userInfo!.email}",
                                       imageUrl: "${cubit.userInfo!.imageUrl}",
+                                      phoneNumber: '${cubit.userInfo!.phoneNumber}',
                                     ),
                                   ),
                                 );
@@ -184,6 +185,33 @@ class _ProfileBody extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Color(0xffF1F3F9),
                             borderRadius: BorderRadius.circular(12)),
+                        child: Text.rich(
+                          TextSpan(
+                              text:'   \n    PhoneNumber',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black),
+                              children: [
+                                TextSpan(
+                                  text: '   \n    ${cubit.userInfo!.phoneNumber}',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff57534E)),
+                                )
+                              ]),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 100,
+                        decoration: BoxDecoration(
+                            color: Color(0xffF1F3F9),
+                            borderRadius: BorderRadius.circular(12)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -209,7 +237,7 @@ class _ProfileBody extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * .25,
                               alignment: Alignment.center,
                               decoration: const BoxDecoration(
-                                  color: Color(0xff9DC3FFF0),
+                                  color: Color(0xffE6F2FF),
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(12),
                                     bottomRight: Radius.circular(12),

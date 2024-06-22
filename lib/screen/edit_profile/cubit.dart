@@ -34,6 +34,7 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
             "LastName": controllers.lastNameController.text,
             "UserName": controllers.userNameController.text,
             "Email": controllers.emailController.text,
+            'PhoneNumber':controllers.phoneController.text,
             if (profileImage != null)
               "ImageUrl": profileImage != null
                   ? MultipartFile.fromFileSync(

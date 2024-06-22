@@ -5,6 +5,7 @@ class EditProfileControllers {
   final lastNameController = TextEditingController();
   final userNameController = TextEditingController();
   final emailController = TextEditingController();
+  final phoneController = TextEditingController();
 
   void dispose() {
     firstNameController.dispose();

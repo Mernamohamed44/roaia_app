@@ -16,37 +16,37 @@ class Edit_Profile extends StatelessWidget {
     required this.lastName,
     required this.userName,
     required this.email,
-    required this.imageUrl,
+    required this.imageUrl, required this.phoneNumber,
   });
 
-  final String firstName, lastName, userName, email, imageUrl;
+  final String firstName, lastName, userName, email, imageUrl,phoneNumber;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => EditProfileCubit(),
-      child: Edit_Profile_Body(
+      child: EditProfileBody(
         firstName: firstName,
         lastName: lastName,
         userName: userName,
         email: email,
-        imageUrl: imageUrl,
+        imageUrl: imageUrl, phoneNumber: phoneNumber,
       ),
     );
   }
 }
 
-class Edit_Profile_Body extends StatelessWidget {
-  const Edit_Profile_Body({
+class EditProfileBody extends StatelessWidget {
+  const EditProfileBody({
     super.key,
     required this.firstName,
     required this.lastName,
     required this.userName,
     required this.email,
-    required this.imageUrl,
+    required this.imageUrl, required this.phoneNumber,
   });
 
-  final String firstName, lastName, userName, email, imageUrl;
+  final String firstName, lastName, userName, email, imageUrl,phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +56,7 @@ class Edit_Profile_Body extends StatelessWidget {
     cubit.controllers.lastNameController.text = lastName;
     cubit.controllers.userNameController.text = userName;
     cubit.controllers.emailController.text = email;
+    cubit.controllers.phoneController.text = phoneNumber;
 
     return Scaffold(
       body: Form(
@@ -155,7 +156,8 @@ class Edit_Profile_Body extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xffF1F3F9),
+                          color: const Color(0xffFFFFFF),
+                          border: Border.all(color: Color(0xffF1F3F9)),
                           borderRadius: BorderRadius.circular(12)),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -184,7 +186,8 @@ class Edit_Profile_Body extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xffF1F3F9),
+                          color: const Color(0xffFFFFFF),
+                          border: Border.all(color: Color(0xffF1F3F9)),
                           borderRadius: BorderRadius.circular(12)),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -214,10 +217,12 @@ class Edit_Profile_Body extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xffF1F3F9),
+                          color: const Color(0xffFFFFFF),
+                          border: Border.all(color: Color(0xffF1F3F9)),
                           borderRadius: BorderRadius.circular(12)),
                       child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(15.0,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -262,6 +267,7 @@ class Edit_Profile_Body extends StatelessWidget {
                               height: 10,
                             ),
                             TextFormField(
+                              readOnly: true,
                               controller: cubit.controllers.emailController,
                               style: const TextStyle(
                                   color: Color(0xff57534E), fontSize: 20),
@@ -276,7 +282,8 @@ class Edit_Profile_Body extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xffF1F3F9),
+                          color: const Color(0xffFFFFFF),
+                          border: Border.all(color: Color(0xffF1F3F9)),
                           borderRadius: BorderRadius.circular(12)),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -284,7 +291,7 @@ class Edit_Profile_Body extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              tr("password", context),
+                              'Phone Number',
                               style: const TextStyle(
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
@@ -292,7 +299,7 @@ class Edit_Profile_Body extends StatelessWidget {
                               height: 10,
                             ),
                             TextFormField(
-                              initialValue: '**********',
+                              controller: cubit.controllers.phoneController,
                               style: const TextStyle(
                                   color: Color(0xff57534E), fontSize: 20),
                               decoration: const InputDecoration(),
@@ -304,6 +311,7 @@ class Edit_Profile_Body extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
+
                     BlocConsumer<EditProfileCubit, EditProfileStates>(
                       listener: (context, state) {
                         if (state is EditProfileFailedState) {

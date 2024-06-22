@@ -63,7 +63,7 @@ class ContactsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            tr("Contacts", context),
+                            "Contacts",
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w800,
@@ -97,10 +97,10 @@ class ContactsBody extends StatelessWidget {
                       scrollDirection: Axis.vertical,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
+                              borderRadius: BorderRadius.circular(8),
                               border:
                                   Border.all(color: const Color(0xff2323230A))),
                           child: ListTile(
