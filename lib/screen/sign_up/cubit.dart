@@ -92,6 +92,50 @@ class RegisterCubit extends Cubit<RegisterStates> {
     emit(ChanceVisibilityState());
   }
 
+  String patternPass =
+      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password Field required';
+    }
+    RegExp regex = RegExp(patternPass);
+    if (!regex.hasMatch(value)) {
+      return 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.';
+    }
+    emit(UploadImageStates());
+    return null;
+  }
+
+  String patternEmail =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email Field required';
+    }
+    RegExp regex = RegExp(patternEmail);
+    if (!regex.hasMatch(value)) {
+      return 'Email should start with letters or numbers, followed by @, and a valid domain name without special characters!';
+    }
+    emit(UploadImageStates());
+    return null;
+  }
+
+  String invalidGuidRegex =
+      r'Invalid Glasses ID [A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{6}! and GUID';
+  String? validateGuid(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Glasses ID Field required';
+    }
+    RegExp regex = RegExp(invalidGuidRegex);
+    if (!regex.hasMatch(value)) {
+      return 'Glasses ID  should be XXXXXXXX-XXXX-XXXX-XXXX-XXXXXX ';
+    }
+    emit(UploadImageStates());
+    return null;
+  }
+
   chooseLicenseImage() {
     ImagePicker.platform.getImage(source: ImageSource.gallery).then((value) {
       if (value != null) {
@@ -100,6 +144,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       }
     });
   }
+
   String barcode = '';
 
   Future scanBarcode() async {

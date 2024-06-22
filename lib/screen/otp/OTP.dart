@@ -274,20 +274,19 @@ class _OTP_Body extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: cubit.code6.text.isEmpty
-                          ? (){}
+                          ? () {}
                           : () {
-                        final String fullCode = cubit.code1.text +
-                            cubit.code2.text +
-                            cubit.code3.text +
-                            cubit.code4.text +
-                            cubit.code5.text +
-                            cubit.code6.text;
+                              final String fullCode = cubit.code1.text +
+                                  cubit.code2.text +
+                                  cubit.code3.text +
+                                  cubit.code4.text +
+                                  cubit.code5.text +
+                                  cubit.code6.text;
 
-                        if (fullCode.length <= 6) {
-                          cubit.otp(email: email, fullOtp: fullCode);
-                        }
-                      },
-
+                              if (fullCode.length <= 6) {
+                                cubit.otp(email: email, fullOtp: fullCode);
+                              }
+                            },
                       child: Text(
                         tr("verify", context),
                         style: const TextStyle(

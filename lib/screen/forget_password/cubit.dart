@@ -36,7 +36,12 @@ class SendCodeCubit extends Cubit<SendCodeStates> {
       logger.e(e);
     }
   }
+  bool isObscure = true;
 
+  changeVisibility() {
+    isObscure = !isObscure;
+    emit(ChanceVisibilityState());
+  }
   //=================================================================
 
   @override

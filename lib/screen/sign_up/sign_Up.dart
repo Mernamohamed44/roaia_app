@@ -82,10 +82,12 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+
                     controller: cubit.controllers.firstNameController,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your first name';
+                        return 'First Name Field Required ';
                       }
                       return null;
                     },
@@ -115,10 +117,12 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+
                     controller: cubit.controllers.lastNameController,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your last name';
+                        return 'Last Name Field Required';
                       }
                       return null;
                     },
@@ -148,10 +152,17 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 SizedBox(
                   height: 48,
                   child: TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+
                     controller: cubit.controllers.userNameController,
                     validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your user name';
+                      String usernameRegex = r'^[a-zA-Z0-9_-]+$';
+                      RegExp regex = RegExp(usernameRegex);
+                      if (!regex.hasMatch(value!)) {
+                        return 'Username can only contain letters or digits';
+                      }
+                    else  if (value.isEmpty) {
+                        return 'User Name Field Required';
                       }
                       return null;
                     },
@@ -183,16 +194,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                   height: 48,
                   child: TextFormField(
                     controller: cubit.controllers.emailController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      //check if valid mail
-                      if (!value.contains('@') || !value.contains('.')) {
-                        return 'Please enter a valid email';
-                      }
-                      return null;
-                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
+                    validator: cubit.validateEmail,
                     decoration: const InputDecoration(
                         labelText: 'email',
                         prefixIcon: Icon(Icons.email),
@@ -223,12 +226,8 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       height: 48,
                       child: TextFormField(
                         controller: cubit.controllers.passwordController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your password';
-                          }
-                          return null;
-                        },
+                        validator: cubit.validatePassword,
+                        autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
                         obscureText: cubit.isObscure,
                         decoration: InputDecoration(
                             labelText: tr("cpass", context),
@@ -270,14 +269,10 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                           width: MediaQuery.of(context).size.width * .70,
                           height: 48,
                           child: TextFormField(
+                            autovalidateMode: AutovalidateMode.onUserInteraction, // Enables continuous validation
                             controller:
                                 TextEditingController(text: cubit.barcode),
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Please enter an id';
-                              }
-                              return null;
-                            },
+                            validator: cubit.validateGuid,
                             decoration: InputDecoration(
                                 labelText: cubit.barcode,
                                 labelStyle: TextStyle(
