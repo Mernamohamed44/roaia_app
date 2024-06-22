@@ -30,11 +30,11 @@ class Reset_Password_Body extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios_new)),
+        // leading: IconButton(
+        //     onPressed: () {
+        //       Navigator.pop(context);
+        //     },
+        //     icon: const Icon(Icons.arrow_back_ios_new)),
         title: Text(
           tr("rest_password", context),
           style: const TextStyle(
@@ -76,17 +76,27 @@ class Reset_Password_Body extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: cubit.passwordController,
-                decoration: InputDecoration(
-                    labelText: tr("epassword", context),
-                    suffixIcon: const Icon(Icons.visibility_outlined),
-                    prefixIcon: const Icon(Icons.lock),
-                    labelStyle: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18,
-                        color: Color(0xff96A0B6)),
-                    border: const OutlineInputBorder()),
+              BlocBuilder<ResetPasswordCubit, ResetPasswordStates>(
+                builder: (context, state) {
+                  return TextFormField(
+                    obscureText: cubit.isObscure,
+                    controller: cubit.passwordController,
+                    decoration: InputDecoration(
+                        labelText: tr("epassword", context),
+                        suffixIcon: IconButton(
+                          icon: cubit.isObscure
+                              ? const Icon(Icons.visibility_outlined)
+                              : Icon(Icons.visibility_off),
+                          onPressed: cubit.changeVisibility,
+                        ),
+                        prefixIcon: const Icon(Icons.lock),
+                        labelStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18,
+                            color: Color(0xff96A0B6)),
+                        border: const OutlineInputBorder()),
+                  );
+                },
               ),
               const SizedBox(
                 height: 35,
@@ -102,18 +112,28 @@ class Reset_Password_Body extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
+              BlocBuilder<ResetPasswordCubit, ResetPasswordStates>(
+  builder: (context, state) {
+    return TextFormField(
+                obscureText: cubit.isObscureConfirm,
                 controller: cubit.rePasswordController,
                 decoration: InputDecoration(
                     labelText: tr("re_epassword", context),
-                    suffixIcon: const Icon(Icons.visibility_outlined),
+                    suffixIcon: IconButton(
+                      icon: cubit.isObscureConfirm
+                          ? const Icon(Icons.visibility_outlined)
+                          : Icon(Icons.visibility_off),
+                      onPressed: cubit.changeVisibilityConfirm,
+                    ),
                     prefixIcon: const Icon(Icons.lock),
                     labelStyle: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff96A0B6)),
                     border: const OutlineInputBorder()),
-              ),
+              );
+  },
+),
               const SizedBox(
                 height: 60,
               ),

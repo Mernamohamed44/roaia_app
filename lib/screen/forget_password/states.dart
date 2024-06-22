@@ -5,7 +5,6 @@ class SendCodeInitialState extends SendCodeStates {}
 class SendCodeLoadingState extends SendCodeStates {}
 
 class NetworkErrorState extends SendCodeStates {}
-class ChanceVisibilityState extends SendCodeStates {}
 
 class SendCodeFailedState extends SendCodeStates {
   final String msg;

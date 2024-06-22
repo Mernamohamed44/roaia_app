@@ -1,12 +1,12 @@
 class ContactsModel {
-  int? id;
-  String? fullName;
-  int? age;
-  String? relation;
-  Null? phoneNumber;
-  String? imageUrl;
-  String? glassesId;
-  Null? glasses;
+  dynamic id;
+  dynamic fullName;
+  dynamic age;
+  dynamic relation;
+  dynamic phoneNumber;
+  dynamic imageUrl;
+  dynamic glassesId;
+  dynamic glasses;
 
   ContactsModel(
       {this.id,

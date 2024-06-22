@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
-import 'package:roaia_app/models/contact.dart';
 import 'package:roaia_app/screen/add_contact/add_contact.dart';
-import 'package:roaia_app/screen/all_Users/contacts_cubit.dart';
+import 'package:roaia_app/screen/all_Contacts/contacts_cubit.dart';
 
 class ContactsScreen extends StatelessWidget {
   const ContactsScreen({super.key});
@@ -64,7 +63,7 @@ class ContactsBody extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            tr("users", context),
+                            tr("Contacts", context),
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w800,

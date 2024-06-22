@@ -20,6 +20,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordStates> {
   final dioManager = DioManager();
   final logger = Logger();
   bool isObscure = true;
+  bool isObscureConfirm = true;
   bool isRemember = true;
 
   Future<void> resetPassword(String email) async {
@@ -73,6 +74,14 @@ class ResetPasswordCubit extends Cubit<ResetPasswordStates> {
   }
 
   //=================================================================
+  changeVisibility() {
+    isObscure = !isObscure;
+    emit(ChanceVisibilityState());
+  }
+  changeVisibilityConfirm() {
+    isObscureConfirm = !isObscureConfirm;
+    emit(ChanceVisibilityState());
+  }
 
   //=================================================================
 
