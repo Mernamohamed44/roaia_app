@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/blind_info/blind_info_cubit.dart';
-import 'package:roaia_app/screen/botton_bar.dart';
+import 'package:roaia_app/screen/bottom_Navigation.dart';
 import 'package:roaia_app/screen/edit_blind_info/edit_blind_info.dart';
 
 class Patient_Info extends StatelessWidget {

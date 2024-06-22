@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:roaia_app/core/helpers/cache_helper.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
-import 'package:roaia_app/screen/botton_bar.dart';
+import 'package:roaia_app/screen/bottom_Navigation.dart';
 import 'package:roaia_app/screen/onboarding.dart';
 
 class Splash_Screen extends StatefulWidget {

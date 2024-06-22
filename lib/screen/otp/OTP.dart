@@ -268,12 +268,14 @@ class _OTP_Body extends StatelessWidget {
                     height: 44,
                     decoration: BoxDecoration(
                       color: cubit.code6.text.isEmpty
-                          ? Colors.grey
+                          ? Color(0xffE6F2FF)
                           : const Color(0xff2C67FF),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: TextButton(
-                      onPressed: () {
+                      onPressed: cubit.code6.text.isEmpty
+                          ? (){}
+                          : () {
                         final String fullCode = cubit.code1.text +
                             cubit.code2.text +
                             cubit.code3.text +
@@ -285,6 +287,7 @@ class _OTP_Body extends StatelessWidget {
                           cubit.otp(email: email, fullOtp: fullCode);
                         }
                       },
+
                       child: Text(
                         tr("verify", context),
                         style: const TextStyle(

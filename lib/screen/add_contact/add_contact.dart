@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/add_contact/add_contact_cubit.dart';
-import 'package:roaia_app/screen/botton_bar.dart';
+import 'package:roaia_app/screen/bottom_Navigation.dart';
 class  AddContactScreen extends StatelessWidget {
   const  AddContactScreen({super.key});
 
