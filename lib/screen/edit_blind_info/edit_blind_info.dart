@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:roaia_app/localization/localization_methods.dart';
 import 'package:roaia_app/screen/bottom_Navigation.dart';
 import 'package:roaia_app/screen/edit_blind_info/edit_blind_info_cubit.dart';
@@ -211,6 +212,9 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                           fontSize: 18,
                           color: Color(0xff40444C)),
                     ),
+                    SizedBox(
+                      width: 100.w,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -222,21 +226,51 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                               shrinkWrap: true,
                               itemCount: controllers.length,
                               itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(bottom: 10.0),
-                                  child: SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * .75,
-                                    height: 48,
-                                    child: TextFormField(
-                                      controller: controllers[index],
-                                      decoration: const InputDecoration(
-                                        filled: true,
-                                        fillColor: Color(0xffE9F2FF),
-                                        border: OutlineInputBorder(),
+                                return Row(
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10.0),
+                                        child: SizedBox(
+                                          height: 48,
+                                          child: TextFormField(
+                                            controller: controllers[index],
+                                            decoration: const InputDecoration(
+                                              filled: true,
+                                              fillColor: Color(0xffE9F2FF),
+                                              border: OutlineInputBorder(),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      flex: 4,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.w),
+                                        child: InkWell(
+                                          onTap: index == 0
+                                              ? () {
+                                                  _addNewTextField();
+                                                }
+                                              : () {
+                                                  setState(() {
+                                                    controllers.removeAt(index);
+                                                  });
+                                                },
+                                          child: index == 0
+                                              ? Icon(Icons.add_circle_outline,
+                                                  color: Color(0xff1363DF),
+                                          size: 35,)
+                                              : Icon(Icons.cancel_outlined,
+                                                  color: Colors.red,
+                                              size: 35),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 );
                               },
                             );
@@ -245,26 +279,26 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * .05,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: InkWell(
-                            onTap: () {
-                              _addNewTextField();
-                            },
-                            child: const CircleAvatar(
-                              radius: 17,
-                              backgroundColor: Colors.black,
-                              child: CircleAvatar(
-                                radius: 15,
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 8.0),
+                        //   child: InkWell(
+                        //     onTap: () {
+                        //       _addNewTextField();
+                        //     },
+                        //     child: const CircleAvatar(
+                        //       radius: 17,
+                        //       backgroundColor: Colors.black,
+                        //       child: CircleAvatar(
+                        //         radius: 15,
+                        //         backgroundColor: Colors.white,
+                        //         child: Icon(
+                        //           Icons.add,
+                        //           color: Colors.black,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                     SizedBox(
@@ -439,8 +473,9 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                                   print(controller
                                       .text); // Print each text value from the controllers
                                 });
-                                List<String> stringsList =
-                                controllers.map((controller) => controller.text).toList();
+                                List<String> stringsList = controllers
+                                    .map((controller) => controller.text)
+                                    .toList();
                                 print(stringsList);
                                 cubit.EditBlindInfo(
                                     Diseases: stringsList, gender: man!);
