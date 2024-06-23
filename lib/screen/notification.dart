@@ -38,7 +38,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
                 child: Center(
                   child: Text(
                     tr("notification", context),
-                    style: const TextStyle(
+                    style: const TextStyle(fontFamily: "Nunito",
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                         color: Color(0xff5095FF)),
@@ -76,7 +76,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
                           width: MediaQuery.of(context).size.width * .70,
                           child: const Text(
                             "New Connection Added: You've beenpaired with a new user. Make a positiveimpact on their journey!",
-                            style: TextStyle(
+                            style: TextStyle(fontFamily: "Nunito",
                                 fontWeight: FontWeight.w700, fontSize: 16),
                           ),
                         ),
@@ -104,7 +104,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
                 },
                 child: Text(
                   tr("delete_all", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Colors.white),

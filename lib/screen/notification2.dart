@@ -16,7 +16,7 @@ class Notification2_Screen extends StatelessWidget {
         ),
         title: Text(
           tr("notification", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               color: Color(0xff1363DF),
               fontSize: 20,
               fontWeight: FontWeight.w700),
@@ -41,7 +41,7 @@ class Notification2_Screen extends StatelessWidget {
             ),
             Text(
               tr("no_notification", context),
-              style: const TextStyle(
+              style: const TextStyle(fontFamily: "Nunito",
                   fontWeight: FontWeight.w800,
                   fontSize: 25,
                   color: Color(0xff040508)),
@@ -51,7 +51,7 @@ class Notification2_Screen extends StatelessWidget {
             ),
             Text(
               tr("will_get_updates", context),
-              style: const TextStyle(
+              style: const TextStyle(fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                   fontSize: 18,
                   color: Color(0xff17191C)),

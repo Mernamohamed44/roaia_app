@@ -43,7 +43,7 @@ class _LoginBody extends StatelessWidget {
                 Center(
                   child: Text(
                     tr("Roaia", context),
-                    style: const TextStyle(
+                    style: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: Color(0xff1363DF)),
@@ -54,7 +54,7 @@ class _LoginBody extends StatelessWidget {
                 ),
                 Text(
                   tr("login", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                       fontWeight: FontWeight.w700,
                       fontSize: 20,
                       color: Color(0xff1363DF)),
@@ -64,7 +64,7 @@ class _LoginBody extends StatelessWidget {
                 ),
                 Text(
                   tr("mail", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -80,7 +80,7 @@ class _LoginBody extends StatelessWidget {
                   // validator: cubit.validateEmail,
                   decoration: InputDecoration(
                       labelText: 'Username, email or phone number',
-                      labelStyle: const TextStyle(
+                      labelStyle: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Color(0xff96A0B6)),
@@ -91,7 +91,7 @@ class _LoginBody extends StatelessWidget {
                 ),
                 Text(
                   tr("password", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -115,7 +115,7 @@ class _LoginBody extends StatelessWidget {
                                 : Icon(Icons.visibility_off),
                             onPressed: cubit.changeVisibility,
                           ),
-                          labelStyle: const TextStyle(
+                          labelStyle: const TextStyle(fontFamily: "Nunito",
                               fontWeight: FontWeight.w400,
                               fontSize: 18,
                               color: Color(0xff96A0B6)),
@@ -134,7 +134,7 @@ class _LoginBody extends StatelessWidget {
                   },
                   child: Text(
                     tr("forget", context),
-                    style: const TextStyle(
+                    style: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 15,
                         color: Color(0xff5095FF)),
@@ -199,7 +199,7 @@ class _LoginBody extends StatelessWidget {
                         },
                         child: Text(
                           tr("Login", context),
-                          style: const TextStyle(
+                          style: const TextStyle(fontFamily: "Nunito",
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
@@ -240,7 +240,7 @@ class _LoginBody extends StatelessWidget {
                   children: [
                     Text(
                       tr("have", context),
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Color(0xff626C83)),
@@ -256,7 +256,7 @@ class _LoginBody extends StatelessWidget {
                       },
                       child: Text(
                         tr("account", context),
-                        style: const TextStyle(
+                        style: const TextStyle(fontFamily: "Nunito",
                             fontWeight: FontWeight.w900,
                             fontSize: 16,
                             color: Color(0xff007AFF)),

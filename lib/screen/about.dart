@@ -16,7 +16,7 @@ class About_App extends StatelessWidget {
         ),
         title: Text(
           tr("about_roaia", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               color: Color(0xff1363DF),
               fontSize: 20,
               fontWeight: FontWeight.w700),
@@ -32,14 +32,14 @@ class About_App extends StatelessWidget {
             ),
             Text.rich(TextSpan(
                 text: tr("roaia_app", context),
-                style: const TextStyle(
+                style: const TextStyle(fontFamily: "Nunito",
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
                 children: [
                   TextSpan(
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                         fontSize: 16,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -51,14 +51,14 @@ class About_App extends StatelessWidget {
             ),
             Text.rich(TextSpan(
                 text: tr("roaia_glasses", context),
-                style: const TextStyle(
+                style: const TextStyle(fontFamily: "Nunito",
                   fontSize: 18,
                   color: Colors.blue,
                   fontWeight: FontWeight.bold,
                 ),
                 children: [
                   TextSpan(
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                         fontSize: 17,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

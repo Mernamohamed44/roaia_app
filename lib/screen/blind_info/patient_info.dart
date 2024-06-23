@@ -36,7 +36,7 @@ class _Patient_Info_Body extends StatelessWidget {
         ),
         title: Text(
           tr("patient_info", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               color: Color(0xff1363DF),
               fontSize: 20,
               fontWeight: FontWeight.w700),
@@ -65,7 +65,7 @@ class _Patient_Info_Body extends StatelessWidget {
                     Center(
                       child: Text(
                         '${cubit.BlindInfo!.fullName}',
-                        style: TextStyle(
+                        style: TextStyle(fontFamily: "Nunito",
                             fontSize: 20,
                             fontWeight: FontWeight.w400,
                             color: Colors.black),
@@ -76,7 +76,7 @@ class _Patient_Info_Body extends StatelessWidget {
                     ),
                     Text(
                       'Full Name : ${cubit.BlindInfo!.fullName}',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Nunito",
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
@@ -86,7 +86,7 @@ class _Patient_Info_Body extends StatelessWidget {
                     ),
                     Text(
                       'Age : ${cubit.BlindInfo!.age}',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Nunito",
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
@@ -96,7 +96,7 @@ class _Patient_Info_Body extends StatelessWidget {
                     ),
                     Text(
                       'Gender : ${cubit.BlindInfo!.gender}',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Nunito",
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
@@ -106,7 +106,7 @@ class _Patient_Info_Body extends StatelessWidget {
                     ),
                     Text(
                       'Diseases : ${cubit.BlindInfo!.diseases ?? ''}',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Nunito",
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                           color: Colors.black),
@@ -118,7 +118,7 @@ class _Patient_Info_Body extends StatelessWidget {
                       children: [
                         Text(
                           tr("current_location", context),
-                          style: const TextStyle(
+                          style: const TextStyle(fontFamily: "Nunito",
                               fontSize: 20,
                               fontWeight: FontWeight.w400,
                               color: Colors.black),
@@ -135,7 +135,7 @@ class _Patient_Info_Body extends StatelessWidget {
                           },
                           child: Text(
                             tr("go_home", context),
-                            style: const TextStyle(
+                            style: const TextStyle(fontFamily: "Nunito",
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.blueAccent),
@@ -166,7 +166,7 @@ class _Patient_Info_Body extends StatelessWidget {
                         },
                         child: Text(
                           tr("edit", context),
-                          style: const TextStyle(
+                          style: const TextStyle(fontFamily: "Nunito",
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),

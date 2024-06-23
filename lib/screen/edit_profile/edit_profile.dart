@@ -101,7 +101,7 @@ class EditProfileBody extends StatelessWidget {
                           child: Center(
                             child: Text(
                               tr("edit_profile_info", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontSize: 18,
                                   fontWeight: FontWeight.w800,
                                   color: Color(0xff5095FF)),
@@ -166,7 +166,7 @@ class EditProfileBody extends StatelessWidget {
                           children: [
                             Text(
                               tr("first", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             const SizedBox(
@@ -174,7 +174,7 @@ class EditProfileBody extends StatelessWidget {
                             ),
                             TextFormField(
                               controller: cubit.controllers.firstNameController,
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   color: Color(0xff57534E), fontSize: 20),
                             )
                           ],
@@ -196,7 +196,7 @@ class EditProfileBody extends StatelessWidget {
                           children: [
                             Text(
                               tr("last", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             const SizedBox(
@@ -204,7 +204,7 @@ class EditProfileBody extends StatelessWidget {
                             ),
                             TextFormField(
                               controller: cubit.controllers.lastNameController,
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   color: Color(0xff57534E), fontSize: 20),
                               decoration: const InputDecoration(),
                             )
@@ -228,7 +228,7 @@ class EditProfileBody extends StatelessWidget {
                           children: [
                             Text(
                               tr("username", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             const SizedBox(
@@ -238,7 +238,7 @@ class EditProfileBody extends StatelessWidget {
                               controller: TextEditingController(
                                   text: cubit
                                       .controllers.userNameController.text),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   color: Color(0xff57534E), fontSize: 20),
                               decoration: const InputDecoration(),
                             )
@@ -260,7 +260,7 @@ class EditProfileBody extends StatelessWidget {
                           children: [
                             Text(
                               tr("mail", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             const SizedBox(
@@ -269,7 +269,7 @@ class EditProfileBody extends StatelessWidget {
                             TextFormField(
                               readOnly: true,
                               controller: cubit.controllers.emailController,
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   color: Color(0xff57534E), fontSize: 20),
                               decoration: const InputDecoration(),
                             )
@@ -292,7 +292,7 @@ class EditProfileBody extends StatelessWidget {
                           children: [
                             Text(
                               'Phone Number',
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                             const SizedBox(
@@ -300,7 +300,7 @@ class EditProfileBody extends StatelessWidget {
                             ),
                             TextFormField(
                               controller: cubit.controllers.phoneController,
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   color: Color(0xff57534E), fontSize: 20),
                               decoration: const InputDecoration(),
                             )
@@ -361,7 +361,7 @@ class EditProfileBody extends StatelessWidget {
                             },
                             child: Text(
                               tr("save_changes", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white),

@@ -51,6 +51,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                   child: Text(
                     tr("Roaia", context),
                     style: const TextStyle(
+                        fontFamily: "Nunito",
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: Color(0xff1363DF)),
@@ -62,6 +63,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("create", context),
                   style: const TextStyle(
+                      fontFamily: "Nunito",
                       fontWeight: FontWeight.w700,
                       fontSize: 20,
                       color: Color(0xff1363DF)),
@@ -72,6 +74,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("first", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -80,27 +83,25 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  height: 48,
-                  child: TextFormField(
-                    autovalidateMode: AutovalidateMode
-                        .onUserInteraction, // Enables continuous validation
+                TextFormField(
+                  autovalidateMode: AutovalidateMode
+                      .onUserInteraction, // Enables continuous validation
 
-                    controller: cubit.controllers.firstNameController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'First Name Field Required ';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        labelText: tr("ename", context),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xff96A0B6)),
-                        border: const OutlineInputBorder()),
-                  ),
+                  controller: cubit.controllers.firstNameController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'First Name Field Required ';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      labelText: tr("ename", context),
+                      labelStyle: const TextStyle(
+                          fontFamily: "Nunito",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Color(0xff96A0B6)),
+                      border: const OutlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 20,
@@ -108,6 +109,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("last", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -116,27 +118,25 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  height: 48,
-                  child: TextFormField(
-                    autovalidateMode: AutovalidateMode
-                        .onUserInteraction, // Enables continuous validation
+                TextFormField(
+                  autovalidateMode: AutovalidateMode
+                      .onUserInteraction, // Enables continuous validation
 
-                    controller: cubit.controllers.lastNameController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Last Name Field Required';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        labelText: tr("ename", context),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xff96A0B6)),
-                        border: const OutlineInputBorder()),
-                  ),
+                  controller: cubit.controllers.lastNameController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Last Name Field Required';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      labelText: tr("ename", context),
+                      labelStyle: const TextStyle(
+                          fontFamily: "Nunito",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Color(0xff96A0B6)),
+                      border: const OutlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 10,
@@ -144,6 +144,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("username", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -152,32 +153,30 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  height: 48,
-                  child: TextFormField(
-                    autovalidateMode: AutovalidateMode
-                        .onUserInteraction, // Enables continuous validation
+                TextFormField(
+                  autovalidateMode: AutovalidateMode
+                      .onUserInteraction, // Enables continuous validation
 
-                    controller: cubit.controllers.userNameController,
-                    validator: (value) {
-                      String usernameRegex = r'^[a-zA-Z0-9_-]+$';
-                      RegExp regex = RegExp(usernameRegex);
-                      if (!regex.hasMatch(value!)) {
-                        return 'Username can only contain letters or digits';
-                      } else if (value.isEmpty) {
-                        return 'User Name Field Required';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        labelText: ' Enter User name',
-                        //labelText: tr("eusername", context),
-                        labelStyle: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xff96A0B6)),
-                        border: const OutlineInputBorder()),
-                  ),
+                  controller: cubit.controllers.userNameController,
+                  validator: (value) {
+                    String usernameRegex = r'^[a-zA-Z0-9_-]+$';
+                    RegExp regex = RegExp(usernameRegex);
+                    if (!regex.hasMatch(value!)) {
+                      return 'Username can only contain letters or digits';
+                    } else if (value.isEmpty) {
+                      return 'User Name Field Required';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      labelText: ' Enter User name',
+                      //labelText: tr("eusername", context),
+                      labelStyle: const TextStyle(
+                          fontFamily: "Nunito",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Color(0xff96A0B6)),
+                      border: const OutlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 10,
@@ -185,6 +184,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("mail", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -193,22 +193,20 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  height: 48,
-                  child: TextFormField(
-                    controller: cubit.controllers.emailController,
-                    autovalidateMode: AutovalidateMode
-                        .onUserInteraction, // Enables continuous validation
-                    validator: cubit.validateEmail,
-                    decoration: const InputDecoration(
-                        labelText: 'email',
-                        prefixIcon: Icon(Icons.email),
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xff96A0B6)),
-                        border: OutlineInputBorder()),
-                  ),
+                TextFormField(
+                  controller: cubit.controllers.emailController,
+                  autovalidateMode: AutovalidateMode
+                      .onUserInteraction, // Enables continuous validation
+                  validator: cubit.validateEmail,
+                  decoration: const InputDecoration(
+                      labelText: 'email',
+                      prefixIcon: Icon(Icons.email),
+                      labelStyle: TextStyle(
+                          fontFamily: "Nunito",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Color(0xff96A0B6)),
+                      border: OutlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 20,
@@ -216,6 +214,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("password", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -226,29 +225,27 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 ),
                 BlocBuilder<RegisterCubit, RegisterStates>(
                   builder: (context, state) {
-                    return SizedBox(
-                      height: 48,
-                      child: TextFormField(
-                        controller: cubit.controllers.passwordController,
-                        validator: cubit.validatePassword,
-                        autovalidateMode: AutovalidateMode
-                            .onUserInteraction, // Enables continuous validation
-                        obscureText: cubit.isObscure,
-                        decoration: InputDecoration(
-                            labelText: tr("cpass", context),
-                            suffixIcon: IconButton(
-                              icon: cubit.isObscure
-                                  ? const Icon(Icons.visibility_outlined)
-                                  : Icon(Icons.visibility_off),
-                              onPressed: cubit.changeVisibility,
-                            ),
-                            prefixIcon: const Icon(Icons.lock),
-                            labelStyle: const TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18,
-                                color: Color(0xff96A0B6)),
-                            border: const OutlineInputBorder()),
-                      ),
+                    return TextFormField(
+                      controller: cubit.controllers.passwordController,
+                      validator: cubit.validatePassword,
+                      autovalidateMode: AutovalidateMode
+                          .onUserInteraction, // Enables continuous validation
+                      obscureText: cubit.isObscure,
+                      decoration: InputDecoration(
+                          labelText: tr("cpass", context),
+                          suffixIcon: IconButton(
+                            icon: cubit.isObscure
+                                ? const Icon(Icons.visibility_outlined)
+                                : Icon(Icons.visibility_off),
+                            onPressed: cubit.changeVisibility,
+                          ),
+                          prefixIcon: const Icon(Icons.lock),
+                          labelStyle: const TextStyle(
+                              fontFamily: "Nunito",
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                              color: Color(0xff96A0B6)),
+                          border: const OutlineInputBorder()),
                     );
                   },
                 ),
@@ -258,6 +255,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                 Text(
                   tr("id", context),
                   style: const TextStyle(
+                    fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -272,7 +270,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       children: [
                         SizedBox(
                           width: MediaQuery.of(context).size.width * .70,
-                          height: 48,
+                          // height: 48,
                           child: TextFormField(
                             autovalidateMode: AutovalidateMode
                                 .onUserInteraction, // Enables continuous validation
@@ -280,8 +278,9 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                                 TextEditingController(text: cubit.barcode),
                             validator: cubit.validateGuid,
                             decoration: InputDecoration(
-                                labelText: cubit.barcode,
+                                labelText: 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX',
                                 labelStyle: TextStyle(
+                                    fontFamily: "Nunito",
                                     fontWeight: FontWeight.w400,
                                     fontSize: 18,
                                     color: Color(0xff96A0B6)),
@@ -363,6 +362,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                             Text(
                               tr("upload_photo", context),
                               style: const TextStyle(
+                                  fontFamily: "Nunito",
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
                                   color: Color(0xff585858)),
@@ -441,11 +441,14 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                         Text(
                           tr("agree", context),
                           style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
+                              fontFamily: "Nunito",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500),
                         ),
                         Text(
                           tr("conditions", context),
                           style: const TextStyle(
+                              fontFamily: "Nunito",
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: Color(0xff006FE8)),
@@ -480,6 +483,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                   },
                   builder: (context, state) {
                     if (state is RegisterLoadingState) {
+                      print('object');
                       return Center(
                         child: CircularProgressIndicator(
                           color: const Color(0xff2C67FF),
@@ -502,19 +506,22 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                                     "You must agree to the terms and conditions"),
                               ),
                             );
-                            // } else if (cubit.imageFileCropper == null) {
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //     SnackBar(
-                            //       content: Text("choose your photo"),
-                            //     ),
-                            //   );
-                            // } else {
+                          }
+                          // else if (cubit.imageFileCropper == null) {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(
+                          //       content: Text("choose your photo"),
+                          //     ),
+                          //   );
+                          // }
+                          else {
                             cubit.register();
                           }
                         },
                         child: Text(
                           tr("sign up", context),
                           style: const TextStyle(
+                              fontFamily: "Nunito",
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
@@ -532,6 +539,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                     Text(
                       tr("already", context),
                       style: const TextStyle(
+                          fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: Color(0xff626C83)),
@@ -548,6 +556,7 @@ class __Sign_Up_BdyState extends State<_Sign_Up_Bdy> {
                       child: Text(
                         tr("Login", context),
                         style: const TextStyle(
+                            fontFamily: "Nunito",
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
                             color: Color(0xff007AFF)),

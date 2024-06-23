@@ -77,7 +77,7 @@ class _ProfileBody extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 tr("profile_info", context),
-                                style: TextStyle(
+                                style: TextStyle(fontFamily: "Nunito",
                                     fontSize: 18,
                                     fontWeight: FontWeight.w800,
                                     color: Color(0xff5095FF)),
@@ -119,7 +119,7 @@ class _ProfileBody extends StatelessWidget {
                       ),
                       Text(
                         '${cubit.userInfo!.firstName} ${cubit.userInfo!.lastName} ',
-                        style: TextStyle(
+                        style: TextStyle(fontFamily: "Nunito",
                             fontSize: 18, fontWeight: FontWeight.w700),
                       ),
                       SizedBox(
@@ -134,14 +134,14 @@ class _ProfileBody extends StatelessWidget {
                         child: Text.rich(
                           TextSpan(
                               text: tr("user_name", context),
-                              style: TextStyle(
+                              style: TextStyle(fontFamily: "Nunito",
                                   fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   color: Colors.black),
                               children: [
                                 TextSpan(
                                   text: '   \n    ${cubit.userInfo!.userName}',
-                                  style: TextStyle(
+                                  style: TextStyle(fontFamily: "Nunito",
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xff57534E)),
@@ -161,14 +161,14 @@ class _ProfileBody extends StatelessWidget {
                         child: Text.rich(
                           TextSpan(
                               text: tr("Email", context),
-                              style: TextStyle(
+                              style: TextStyle(fontFamily: "Nunito",
                                   fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   color: Colors.black),
                               children: [
                                 TextSpan(
                                   text: '   \n    ${cubit.userInfo!.email}',
-                                  style: TextStyle(
+                                  style: TextStyle(fontFamily: "Nunito",
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xff57534E)),
@@ -188,14 +188,14 @@ class _ProfileBody extends StatelessWidget {
                         child: Text.rich(
                           TextSpan(
                               text:'   \n    PhoneNumber',
-                              style: TextStyle(
+                              style: TextStyle(fontFamily: "Nunito",
                                   fontSize: 18,
                                   fontWeight: FontWeight.w400,
                                   color: Colors.black),
                               children: [
                                 TextSpan(
                                   text: '   \n    ${cubit.userInfo!.phoneNumber}',
-                                  style: TextStyle(
+                                  style: TextStyle(fontFamily: "Nunito",
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
                                       color: Color(0xff57534E)),
@@ -218,14 +218,14 @@ class _ProfileBody extends StatelessWidget {
                             Text.rich(
                               TextSpan(
                                   text: tr("Password", context),
-                                  style: TextStyle(
+                                  style: TextStyle(fontFamily: "Nunito",
                                       fontSize: 18,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.black),
                                   children: [
                                     TextSpan(
                                       text: '   \n    ********',
-                                      style: TextStyle(
+                                      style: TextStyle(fontFamily: "Nunito",
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400,
                                           color: Color(0xff57534E)),
@@ -253,7 +253,7 @@ class _ProfileBody extends StatelessWidget {
                                 },
                                 child: Text(
                                   tr("change", context),
-                                  style: TextStyle(
+                                  style: TextStyle(fontFamily: "Nunito",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 18,
                                       color: Color(0xff1363DF)),

@@ -18,3 +18,4 @@ class RegisterFailedState extends RegisterStates {
 }
 
 class UploadImageStates extends RegisterStates {}
+class ValidateGuidStates extends RegisterStates {}

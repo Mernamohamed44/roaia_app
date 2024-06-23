@@ -24,7 +24,7 @@ class _SettingState extends State<Setting> {
         ),
         title: Text(
           tr("settings", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               color: Color(0xff1363DF),
               fontSize: 20,
               fontWeight: FontWeight.w700),

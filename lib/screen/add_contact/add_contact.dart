@@ -45,7 +45,7 @@ class _AddContactScreenState extends State<AddContactBody> {
               icon: const Icon(Icons.arrow_back_ios_new)),
           title: Text(
             tr("add_contact", context),
-            style: const TextStyle(
+            style: const TextStyle(fontFamily: "Nunito",
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff1363DF)),
@@ -63,7 +63,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                 ),
                 Text(
                   tr("name", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -76,7 +76,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                   controller: cubit.nameController,
                   decoration: InputDecoration(
                       labelText: tr("enter_contact_name", context),
-                      labelStyle: const TextStyle(
+                      labelStyle: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Color(0xff96A0B6)),
@@ -87,7 +87,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                 ),
                 Text(
                   tr("age", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -101,7 +101,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                   decoration: InputDecoration(
                       labelText: tr("enter_contact_age", context),
                       prefixIcon: const Icon(Icons.account_circle),
-                      labelStyle: const TextStyle(
+                      labelStyle: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Color(0xff96A0B6)),
@@ -112,7 +112,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                 ),
                 Text(
                   tr("relation", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff40444C),
@@ -126,7 +126,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                   decoration: InputDecoration(
                       labelText: tr("enter_relation", context),
                       prefixIcon: const Icon(Icons.account_circle),
-                      labelStyle: const TextStyle(
+                      labelStyle: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Color(0xff96A0B6)),
@@ -191,7 +191,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                 //           children: [
                 //             Text(
                 //               tr("take_photo", context),
-                //               style: const TextStyle(
+                //               style: const TextStyle(fontFamily: "Nunito",
                 //                   fontWeight: FontWeight.w400,
                 //                   fontSize: 16,
                 //                   color: Color(0xff585858)),
@@ -310,7 +310,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                           children: [
                             Text(
                               tr("upload_photo", context),
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
                                   color: Color(0xff585858)),
@@ -424,7 +424,7 @@ class _AddContactScreenState extends State<AddContactBody> {
                         },
                         child: Text(
                           'ADD',
-                          style: const TextStyle(
+                          style: const TextStyle(fontFamily: "Nunito",
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),

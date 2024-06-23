@@ -79,7 +79,7 @@ class _Onborading_ScreenState extends State<Onborading_Screen> {
                           ),
                           Text(
                             "${boarding[index].title} ",
-                            style: TextStyle(
+                            style: TextStyle(fontFamily: "Nunito",
                                 fontWeight: FontWeight.w700,
                                 fontSize: 20,
                                 color: Color(0xff5095FF)),
@@ -89,7 +89,7 @@ class _Onborading_ScreenState extends State<Onborading_Screen> {
                           ),
                           Text(
                             "${boarding[index].body}",
-                            style: TextStyle(
+                            style: TextStyle(fontFamily: "Nunito",
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
                               color: Color(0xffA8A29E),
@@ -136,7 +136,7 @@ class _Onborading_ScreenState extends State<Onborading_Screen> {
                 },
                 child: Text(
                   tr("next", context),
-                  style: TextStyle(
+                  style: TextStyle(fontFamily: "Nunito",
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Colors.white),

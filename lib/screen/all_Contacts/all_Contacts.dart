@@ -64,7 +64,7 @@ class ContactsBody extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "Contacts",
-                            style: const TextStyle(
+                            style: const TextStyle(fontFamily: "Nunito",
                                 fontSize: 16,
                                 fontWeight: FontWeight.w800,
                                 color: Color(0xff5095FF)),
@@ -108,7 +108,7 @@ class ContactsBody extends StatelessWidget {
                                 cubit.contactsList[index].imageUrl!),
                             title: Text(
                               "${cubit.contactsList[index].fullName}",
-                              style: const TextStyle(
+                              style: const TextStyle(fontFamily: "Nunito",
                                   fontWeight: FontWeight.w700, fontSize: 16),
                             ),
                             subtitle: Column(
@@ -116,13 +116,13 @@ class ContactsBody extends StatelessWidget {
                               children: [
                                 Text(
                                   cubit.contactsList[index].relation!,
-                                  style: const TextStyle(
+                                  style: const TextStyle(fontFamily: "Nunito",
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400),
                                 ),
                                 Text(
                                   '${cubit.contactsList[index].age}',
-                                  style: const TextStyle(
+                                  style: const TextStyle(fontFamily: "Nunito",
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400),
                                 ),

@@ -30,7 +30,7 @@ class SendCodeCubit extends Cubit<SendCodeStates> {
         emit(SendCodeFailedState(msg: "${response.data}"));
       }
     } on DioException catch (e) {
-      emit(SendCodeFailedState(msg: "handleDioException"));
+      emit(SendCodeFailedState(msg: "${e.response}"));
     } catch (e) {
       emit(SendCodeFailedState(msg: 'An unknown error: $e'));
       logger.e(e);

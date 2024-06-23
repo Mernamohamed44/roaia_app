@@ -38,7 +38,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
           animatedTexts: [
             WavyAnimatedText(
               tr("Roaia", context),
-              textStyle: const TextStyle(
+              textStyle: const TextStyle(fontFamily: "Nunito",
                   fontSize: 65,
                   fontWeight: FontWeight.w400,
                   color: Color(0xff1363DF)),

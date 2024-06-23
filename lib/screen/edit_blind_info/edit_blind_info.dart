@@ -90,7 +90,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
           ),
           title: Text(
             tr("patient_info", context),
-            style: const TextStyle(
+            style: const TextStyle(fontFamily: "Nunito",
                 color: Color(0xff1363DF),
                 fontSize: 20,
                 fontWeight: FontWeight.w700),
@@ -110,7 +110,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                     ),
                     Text(
                       tr("name", context),
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           color: Color(0xff40444C)),
@@ -122,7 +122,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.person),
                           hintText: tr("eblind_name", context),
-                          hintStyle: const TextStyle(
+                          hintStyle: const TextStyle(fontFamily: "Nunito",
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                               color: Color(0xffD6D3D1)),
@@ -135,7 +135,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                     ),
                     Text(
                       tr("age", context),
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           color: Color(0xff40444C)),
@@ -147,7 +147,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.person),
                           hintText: tr("eblind_age", context),
-                          hintStyle: const TextStyle(
+                          hintStyle: const TextStyle(fontFamily: "Nunito",
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                               color: Color(0xffD6D3D1)),
@@ -171,7 +171,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                               child: RadioListTile(
                                   title: Text(
                                     tr("female", context),
-                                    style: const TextStyle(
+                                    style: const TextStyle(fontFamily: "Nunito",
                                         fontSize: 13, fontWeight: FontWeight.bold),
                                   ),
                                   value: "Female",
@@ -194,7 +194,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                               child: RadioListTile(
                                   title: Text(
                                     tr("male", context),
-                                    style: const TextStyle(
+                                    style: const TextStyle(fontFamily: "Nunito",
                                         fontSize: 13, fontWeight: FontWeight.bold),
                                   ),
                                   value: "Male",
@@ -214,7 +214,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                     ),
                     Text(
                       tr("enter_diseases", context),
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w700,
                           fontSize: 18,
                           color: Color(0xff40444C)),
@@ -368,7 +368,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                               children: [
                                 Text(
                                   tr("take_photo", context),
-                                  style: const TextStyle(
+                                  style: const TextStyle(fontFamily: "Nunito",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 16,
                                       color: Color(0xff585858)),
@@ -490,7 +490,7 @@ class _EditBlindInfoBodyState extends State<EditBlindInfoBody> {
                               },
                               child: Text(
                                 tr("save", context),
-                                style: const TextStyle(
+                                style: const TextStyle(fontFamily: "Nunito",
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.white),

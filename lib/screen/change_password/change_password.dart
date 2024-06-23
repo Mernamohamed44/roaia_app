@@ -31,7 +31,7 @@ class ChangePasswordBody extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new)),
         title: Text(
           tr("change_password", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: Color(0xff1363DF)),
@@ -50,7 +50,7 @@ class ChangePasswordBody extends StatelessWidget {
               Center(
                 child: Text(
                   tr("create_strong", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Color(0xffABA9AB)),
@@ -61,7 +61,7 @@ class ChangePasswordBody extends StatelessWidget {
               ),
               Text(
                 tr("old_password", context),
-                style: const TextStyle(
+                style: const TextStyle(fontFamily: "Nunito",
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: Color(0xff40444C),
@@ -75,7 +75,8 @@ class ChangePasswordBody extends StatelessWidget {
                 decoration: InputDecoration(
                     labelText: tr("enter_old_password", context),
                     prefixIcon: const Icon(Icons.lock),
-                    labelStyle: const TextStyle(
+                    labelStyle: const TextStyle(fontFamily: "Nunito",
+                      
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff96A0B6)),
@@ -86,7 +87,7 @@ class ChangePasswordBody extends StatelessWidget {
               ),
               Text(
                 tr("new_password", context),
-                style: const TextStyle(
+                style: const TextStyle(fontFamily: "Nunito",
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: Color(0xff40444C),
@@ -100,7 +101,7 @@ class ChangePasswordBody extends StatelessWidget {
                 decoration: InputDecoration(
                     labelText: tr("enter_new_password", context),
                     prefixIcon: const Icon(Icons.lock),
-                    labelStyle: const TextStyle(
+                    labelStyle: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff96A0B6)),
@@ -111,7 +112,7 @@ class ChangePasswordBody extends StatelessWidget {
               ),
               Text(
                 tr("confirm_password", context),
-                style: const TextStyle(
+                style: const TextStyle(fontFamily: "Nunito",
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: Color(0xff40444C),
@@ -125,7 +126,7 @@ class ChangePasswordBody extends StatelessWidget {
                 decoration: InputDecoration(
                     labelText: tr("re_epassword", context),
                     prefixIcon: const Icon(Icons.lock),
-                    labelStyle: const TextStyle(
+                    labelStyle: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff96A0B6)),
@@ -171,7 +172,7 @@ class ChangePasswordBody extends StatelessWidget {
                       },
                       child: Text(
                         tr("change_password", context),
-                        style: const TextStyle(
+                        style: const TextStyle(fontFamily: "Nunito",
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             color: Colors.white),

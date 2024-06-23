@@ -54,7 +54,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                       ),
                       Text(
                         '${CacheHelper.get(key: 'name')}',
-                        style: TextStyle(
+                        style: TextStyle(fontFamily: "Nunito",
                           fontWeight: FontWeight.w400,
                           fontSize: 15,
                           color: Colors.black,

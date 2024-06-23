@@ -49,7 +49,7 @@ class _OTP_Body extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new)),
         title: Text(
           tr("otp", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: Color(0xff1363DF)),
@@ -67,7 +67,7 @@ class _OTP_Body extends StatelessWidget {
               Center(
                 child: Text(
                   tr("authentication_code", context),
-                  style: const TextStyle(
+                  style: const TextStyle(fontFamily: "Nunito",
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: Color(0xffABA9AB)),
@@ -100,7 +100,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                   SizedBox(
@@ -124,7 +124,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                   SizedBox(
@@ -148,7 +148,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                   SizedBox(
@@ -172,7 +172,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                   SizedBox(
@@ -196,7 +196,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                   SizedBox(
@@ -220,7 +220,7 @@ class _OTP_Body extends StatelessWidget {
                         LengthLimitingTextInputFormatter(1),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      style: const TextStyle(color: Colors.blueAccent),
+                      style: const TextStyle(fontFamily: "Nunito",color: Colors.blueAccent),
                     ),
                   ),
                 ],
@@ -289,7 +289,7 @@ class _OTP_Body extends StatelessWidget {
                             },
                       child: Text(
                         tr("verify", context),
-                        style: const TextStyle(
+                        style: const TextStyle(fontFamily: "Nunito",
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             color: Colors.white),
@@ -306,14 +306,14 @@ class _OTP_Body extends StatelessWidget {
                 children: [
                   Text(
                     tr("code_send", context),
-                    style: const TextStyle(
+                    style: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         color: Color(0xff040508)),
                   ),
                   Text(
                     '2:00',
-                    style: const TextStyle(
+                    style: const TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff5095FF)),

@@ -34,7 +34,7 @@ class _Forget_Password_Body extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new)),
         title: Text(
           tr("fpassword", context),
-          style: const TextStyle(
+          style: const TextStyle(fontFamily: "Nunito",
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: Color(0xff1363DF)),
@@ -51,7 +51,7 @@ class _Forget_Password_Body extends StatelessWidget {
             ),
             Text(
               'Email',
-              style: const TextStyle(
+              style: const TextStyle(fontFamily: "Nunito",
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 color: Color(0xff40444C),
@@ -70,7 +70,7 @@ class _Forget_Password_Body extends StatelessWidget {
                       Icons.email,
                       size: 18,
                     ),
-                    labelStyle: TextStyle(
+                    labelStyle: TextStyle(fontFamily: "Nunito",
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Color(0xff96A0B6)),
@@ -128,7 +128,7 @@ class _Forget_Password_Body extends StatelessWidget {
                     },
                     child: Text(
                       tr("rpassword", context),
-                      style: const TextStyle(
+                      style: const TextStyle(fontFamily: "Nunito",
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Colors.white),

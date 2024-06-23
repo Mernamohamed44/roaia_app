@@ -126,13 +126,13 @@ class RegisterCubit extends Cubit<RegisterStates> {
       r'Invalid Glasses ID [A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{6}! and GUID';
   String? validateGuid(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Glasses ID Field required';
+      return 'Glasses ID  should be XXXXXXXX-XXXX-XXXX-XXXX-XXXXXX';
     }
-    RegExp regex = RegExp(invalidGuidRegex);
-    if (!regex.hasMatch(value)) {
-      return 'Glasses ID  should be XXXXXXXX-XXXX-XXXX-XXXX-XXXXXX ';
-    }
-    emit(UploadImageStates());
+    // RegExp regex = RegExp(invalidGuidRegex);
+    // if (!regex.hasMatch(value)) {
+    //   return 'Glasses ID  should be XXXXXXXX-XXXX-XXXX-XXXX-XXXXXX ';
+    // }
+    emit(ValidateGuidStates());
     return null;
   }
 
@@ -156,7 +156,6 @@ class RegisterCubit extends Cubit<RegisterStates> {
     } on PlatformException {
       barcode = 'Failed to get ';
     }
-    barcode == barcode;
     emit(ScanBarcode());
   }
 
