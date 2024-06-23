@@ -103,10 +103,10 @@ class _LoginBody extends StatelessWidget {
                 BlocBuilder<LoginCubit, LoginStates>(
                   builder: (context, state) {
                     return TextFormField(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      // autovalidateMode: AutovalidateMode.onUserInteraction,
                       obscureText: cubit.isObscure,
                       controller: cubit.passwordController,
-                      validator: cubit.validatePassword,
+                      // validator: cubit.validatePassword,
                       decoration: InputDecoration(
                           labelText: tr("epassword", context),
                           suffixIcon: IconButton(
