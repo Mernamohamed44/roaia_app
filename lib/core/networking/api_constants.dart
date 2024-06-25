@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://www.roaiaofficial.somee.com/api";
+  static const String apiBaseUrl = "https://roaiaofficial.runasp.net/api";
 
   static const String login = "$apiBaseUrl/Auth/login";
   static const String register = "$apiBaseUrl/Auth/register";
