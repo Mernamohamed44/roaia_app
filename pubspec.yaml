@@ -50,6 +50,10 @@ dependencies:
   shared_preferences: ^2.0.15
   permission_handler:
   flutter_screenutil:
+  flutter_map:
+  latlong2:
+  geolocator:
+
 
 dev_dependencies:
   flutter_test:
